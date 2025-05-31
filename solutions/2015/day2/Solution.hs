@@ -1,6 +1,7 @@
 module Solution (part1, part2) where
 
 import Data.List (sort)
+import Control.Applicative (liftA2)
 import Utils (splitBy)
 
 data Box = Box { pLength :: Int
@@ -34,7 +35,7 @@ ribbonForBow :: Box -> Int
 ribbonForBow Box { pLength = l, pWidth = w, pHeight = h } = l * w * h
 
 totalRibbonForBox :: Box -> Int
-totalRibbonForBox box = ribbonToWrap box + ribbonForBow box
+totalRibbonForBox = liftA2 (+) ribbonToWrap ribbonForBow
 
 part1 :: String -> Int
 part1 = sum . map wrappingPaperNeeded . parseInput
