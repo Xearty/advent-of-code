@@ -13,3 +13,9 @@ run' inputFilePath solution = do
     trim :: String -> String
     trim = f . f
       where f = reverse . dropWhile isSpace
+
+splitBy :: (a -> Bool) -> [a] -> [[a]]
+splitBy _ [] = []
+splitBy isSep lst =
+  let (first, rest) = break isSep lst
+  in  first:splitBy isSep (dropWhile isSep rest)
