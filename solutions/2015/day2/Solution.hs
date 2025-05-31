@@ -1,6 +1,6 @@
 module Solution (part1, part2) where
 
-import Data.List
+import Data.List (sort)
 import Utils (splitBy)
 
 data Box = Box { pLength :: Int

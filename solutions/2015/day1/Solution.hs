@@ -1,6 +1,6 @@
 module Solution (part1, part2) where
 
-import Data.List
+import Data.List (findIndex)
 
 updateFloor :: Int -> Char -> Int
 updateFloor floorLevel '(' = floorLevel + 1
