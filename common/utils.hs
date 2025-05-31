@@ -8,7 +8,7 @@ run = run' "./input.txt"
 run' :: Show a => FilePath -> (String -> a) -> IO ()
 run' inputFilePath solution = do
   input <- readFile inputFilePath
-  putStrLn $ show . solution $ trim input
+  putStrLn . show . solution . trim $ input
   where
     trim :: String -> String
     trim = f . f
