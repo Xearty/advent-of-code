@@ -9,10 +9,10 @@ run' :: Show a => FilePath -> (String -> a) -> IO ()
 run' inputFilePath solution = do
   input <- readFile inputFilePath
   putStrLn . show . solution . trim $ input
-  where
-    trim :: String -> String
-    trim = f . f
-      where f = reverse . dropWhile isSpace
+
+trim :: String -> String
+trim = shake . shake
+  where shake = reverse . dropWhile isSpace
 
 splitBy :: (a -> Bool) -> [a] -> [[a]]
 splitBy _ [] = []
