@@ -6,7 +6,7 @@ run year day part:
     SOLUTION_DIR="{{root}}/solutions/{{year}}/day{{day}}"
     cd $SOLUTION_DIR
     ghc -e 'Run.run Solution.part{{part}}' \
-        {{root}}/common/run.hs \
-        {{root}}/common/utils.hs \
-        $SOLUTION_DIR/solution.hs
+        {{root}}/common/Run.hs \
+        {{root}}/common/Utils.hs \
+        $SOLUTION_DIR/Solution.hs
 
