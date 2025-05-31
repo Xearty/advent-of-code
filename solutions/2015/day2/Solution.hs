@@ -10,20 +10,18 @@ data Box = Box { pLength :: Int
                } deriving (Show)
 
 parseBox :: String -> Box
-parseBox str =
-  case splitBy (== 'x') str of
-    [lStr, wStr, hStr] -> Box (read lStr) (read wStr) (read hStr)
-    _                  -> error $ "Invalid box format: " ++ str
+parseBox str = case splitBy (== 'x') str of
+  [lStr, wStr, hStr] -> Box (read lStr) (read wStr) (read hStr)
+  _                  -> error $ "Invalid box format: " ++ str
 
 parseInput :: String -> [Box]
 parseInput = map parseBox . lines
 
 wrappingPaperNeeded :: Box -> Int
 wrappingPaperNeeded Box { pLength = l, pWidth = w, pHeight = h } =
-  let
-    areas = [l * w, w * h, h * l]
-    surfaceArea = 2 * sum areas
-    slack = minimum areas
+  let areas = [l * w, w * h, h * l]
+      surfaceArea = 2 * sum areas
+      slack = minimum areas
   in surfaceArea + slack
 
 ribbonToWrap :: Box -> Int
