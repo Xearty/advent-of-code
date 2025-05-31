@@ -33,11 +33,11 @@ ribbonToWrap Box { pLength = l, pWidth = w, pHeight = h } =
 ribbonForBow :: Box -> Int
 ribbonForBow Box { pLength = l, pWidth = w, pHeight = h } = l * w * h
 
-totalRibbonForOneBox :: Box -> Int
-totalRibbonForOneBox box = ribbonToWrap box + ribbonForBow box
+totalRibbonForBox :: Box -> Int
+totalRibbonForBox box = ribbonToWrap box + ribbonForBow box
 
 part1 :: String -> Int
 part1 = sum . map wrappingPaperNeeded . parseInput
 
 part2 :: String -> Int
-part2 = sum . map totalRibbonForOneBox . parseInput
+part2 = sum . map totalRibbonForBox . parseInput
